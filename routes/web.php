@@ -14,8 +14,15 @@
 Route::get('/', function () {
     return view('home');
 });
+
 Route::get('/product', function () {
     return view('product');
 });
 
 Route::get('/getProducts', 'Master\ProductController@getData');
+
+Route::group(['domain' => 'admin.mysecretroom.my.id'], function(){
+    Route::get('/', function(){
+        return 'subdomainoke';
+    });
+});
