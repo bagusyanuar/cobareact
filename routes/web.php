@@ -11,7 +11,7 @@
 |
 */
 
-
+use Illuminate\Support\Facades\Redirect;
 
 Route::get('/', function () {
     return view('home');
@@ -21,10 +21,15 @@ Route::get('/product', function () {
     return view('product');
 });
 
+Route::get('/login', function(){
+    $url = 'admin.mysecretroom.my.id';
+    Redirect::to($url)->with(['coba' => 'Variable']);
+});
+
 Route::get('/getProducts', 'Master\ProductController@getData');
 
 Route::group(['domain' => 'admin.mysecretroom.my.id'], function () {
-    Route::get('/', function () {
-        return "This will respond to requests for 'admin.localhost/'";
+    Route::get('/client', function () {
+        return view('main.home');
     });
 });
