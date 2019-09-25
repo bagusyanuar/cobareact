@@ -18,11 +18,12 @@
     <body>
         <div id="main-contet">
             <div id="Header"></div>
-            <div class="container">
-                @yield('content')
-                
-            </div>
+            
             <div id=footer></div>
+        </div>
+        <div class="container">
+            @yield('content')
+            
         </div>
 
         <script src="{{ asset('js/app.js') }}"></script>
