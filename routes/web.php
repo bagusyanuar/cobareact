@@ -21,8 +21,8 @@ Route::get('/product', function () {
 
 Route::get('/getProducts', 'Master\ProductController@getData');
 
-Route::group(['domain' => 'admin.mysecretroom.my.id'], function(){
-    Route::get('/', function(){
-        return 'subdomainoke';
+Route::domain('admin.mysecretroom.my.id')->group(function () {
+    Route::get('/', function () {
+        return 'oke';
     });
 });
