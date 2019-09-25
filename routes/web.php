@@ -23,18 +23,21 @@ Route::domain('admin.mysecretroom.my.id')->group(function () {
     });
 });
 
-Route::get('/', function () {
-    return view('login');
+Route::domain('mysecretroom.my.id')->group(function(){
+    Route::get('/', function () {
+        return view('login');
+    });
+    
+    Route::get('/product', function () {
+        return view('product');
+    });
+    
+    Route::get('/login', function(){
+        $url = 'http://admin.mysecretroom.my.id/client';
+        return Redirect::to($url)->with(['coba' => 'Variable']);
+    });
+    
+    Route::get('/getProducts', 'Master\ProductController@getData');
 });
 
-Route::get('/product', function () {
-    return view('product');
-});
-
-Route::get('/login', function(){
-    $url = 'http://admin.mysecretroom.my.id/client';
-    return Redirect::to($url)->with(['coba' => 'Variable']);
-});
-
-Route::get('/getProducts', 'Master\ProductController@getData');
 
