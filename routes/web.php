@@ -13,6 +13,12 @@
 
 use Illuminate\Support\Facades\Redirect;
 
+Route::group(['domain' => 'admin.mysecretroom.my.id'], function () {
+    Route::get('/client', function () {
+        return 'test';
+    });
+});
+
 Route::get('/', function () {
     return view('login');
 });
@@ -28,8 +34,3 @@ Route::get('/login', function(){
 
 Route::get('/getProducts', 'Master\ProductController@getData');
 
-Route::group(['domain' => 'admin.mysecretroom.my.id'], function () {
-    Route::get('/client', function () {
-        return 'test';
-    });
-});
