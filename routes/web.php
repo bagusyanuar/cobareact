@@ -11,6 +11,12 @@
 |
 */
 
+Route::group(['domain' => 'admin.mysecretroom.my.id'], function () {
+    Route::get('/', function () {
+        return "This will respond to requests for 'admin.localhost/'";
+    });
+});
+
 Route::get('/', function () {
     return view('home');
 });
@@ -21,8 +27,3 @@ Route::get('/product', function () {
 
 Route::get('/getProducts', 'Master\ProductController@getData');
 
-Route::domain('admin.mysecretroom.my.id')->group(function () {
-    Route::get('/', function () {
-        return 'oke';
-    });
-});
