@@ -19,7 +19,7 @@ Route::domain('admin.mysecretroom.my.id')->group(function () {
     });
     
     Route::get('/client', function () {
-        return 'client';
+        return view('home');
     });
 });
 
