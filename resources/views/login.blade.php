@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="http://admin.mysecretroom.my.id">Login</a>
+    <a href="/login">Login</a>
 </body>
 </html>
