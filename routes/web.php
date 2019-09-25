@@ -22,7 +22,7 @@ Route::get('/product', function () {
 });
 
 Route::get('/login', function(){
-    $url = 'admin.mysecretroom.my.id';
+    $url = 'http://admin.mysecretroom.my.id/client';
     Redirect::to($url)->with(['coba' => 'Variable']);
 });
 
@@ -30,6 +30,6 @@ Route::get('/getProducts', 'Master\ProductController@getData');
 
 Route::group(['domain' => 'admin.mysecretroom.my.id'], function () {
     Route::get('/client', function () {
-        return view('main.home');
+        return 'test';
     });
 });
