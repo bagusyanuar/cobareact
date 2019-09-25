@@ -14,7 +14,7 @@
 use Illuminate\Support\Facades\Redirect;
 
 Route::group(['domain' => 'admin.mysecretroom.my.id'], function () {
-    Route::get('/client', function () {
+    Route::get('/', function () {
         return 'test';
     });
 });
