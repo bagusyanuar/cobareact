@@ -20,6 +20,7 @@
             <div id="Header"></div>
             <div class="container">
                 @yield('content')
+                
             </div>
             <div id=footer></div>
         </div>
