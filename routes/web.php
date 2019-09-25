@@ -14,7 +14,7 @@
 use Illuminate\Support\Facades\Redirect;
 
 Route::get('/', function () {
-    return view('home');
+    return view('login');
 });
 
 Route::get('/product', function () {
