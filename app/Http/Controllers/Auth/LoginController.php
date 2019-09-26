@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -56,7 +56,8 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($request->only($login_type, 'password'))) {
-            return redirect('/dashboard');
+            $url = 'admin.mysecretroom.my.id';
+            return Redirect::to($url);
         } else {
             return redirect()->back()->with('gagal', 'user id/password salah');
         }
