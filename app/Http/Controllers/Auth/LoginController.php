@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -35,5 +35,33 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+        return view('login');
+    }
+
+    function postlogin(Request $request)
+    {
+        $login_type = filter_var($request->input('username'), FILTER_VALIDATE_EMAIL)
+            ? 'email'
+            : 'username';
+
+        $request->merge([
+            $login_type => $request->input('username')
+        ]);
+
+        if (Auth::attempt($request->only($login_type, 'password'))) {
+            return redirect('/dashboard');
+        } else {
+            return redirect()->back()->with('gagal', 'user id/password salah');
+        }
+    }
+
+    function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

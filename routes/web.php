@@ -24,8 +24,12 @@ Route::domain('admin.mysecretroom.my.id')->group(function () {
 });
 
 Route::domain('mysecretroom.my.id')->group(function(){
-    Route::get('/', function () {
-        return view('login');
+    Route::get('/', 'Auth\LoginController@showLoginForm');
+    Route::post('/postlogin', 'Auth\LoginController@postlogin');
+    Route::get('/logout', 'Auth\LoginController@logout');
+
+    Route::get('/dashboard', function(){
+        return view('dashboard');
     });
     
     Route::get('/product', function () {
