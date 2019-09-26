@@ -24,7 +24,7 @@
                     Admin Login
                 </div>
                 <div class="login-form">
-                    <form method="post" action="/postloginadmin">
+                    <form method="post" action="/postlogin">
                         @csrf
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
