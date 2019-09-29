@@ -56,8 +56,9 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($request->only($login_type, 'password'))) {
-            $url = 'http://admin.mysecretroom.my.id';
-            return Redirect::to($url);
+            // $url = 'http://admin.mysecretroom.my.id';
+            // return Redirect::to($url);
+            return redirect('dashboard.client');
         } else {
             return redirect()->back()->with('gagal', 'user id/password salah');
         }
